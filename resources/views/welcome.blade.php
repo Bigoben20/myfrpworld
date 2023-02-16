@@ -21,7 +21,9 @@
             <div class="max-w-6xl  sm:px-6 lg:px-8">
                 <div class="text-6xl w-full dark:text-gray-200">Welcome to My Frp World</div>
                 @auth
-                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                <div class="flex justify-center items-center gap-10 mt-10 text-lg">
+                    <a href="{{ url('/dashboard') }}" class="text-gray-700 dark:text-gray-300 px-4 py-2 bg-gray-200 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 dark:active:bg-gray-600 rounded-2xl">Dashboard</a>
+                </div>
                 @else
                     <div class="flex justify-center items-center gap-10 mt-10 text-lg">
                         <a href="{{ route('login') }}" class="text-gray-700 dark:text-gray-300 px-4 py-2 bg-gray-200 hover:bg-gray-300 active:bg-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 dark:active:bg-gray-600 rounded-2xl">Log in</a>
