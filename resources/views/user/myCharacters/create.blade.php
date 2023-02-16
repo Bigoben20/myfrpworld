@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-2xl">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <form action="/create" method="post">
                     <div class="grid grid-cols-1 md:grid-cols-2">
@@ -15,16 +15,16 @@
                         {{-- left side --}}
                         <div class="flex flex-col gap-4">
                             {{-- aspects --}}
-                            <div class="flex flex-col gap-2 border border-gray-800 rounded-xl">
+                            <div class="flex flex-col border border-gray-800 rounded-xl">
 
                                 {{-- header --}}
-                                <button class="bg-gray-700 rounded-t-lg px-2 py-1" type="button" data-bs-toggle="collapse" data-bs-target="#aspects" aria-expanded="true" aria-controls="aspects">
+                                <button class="bg-gray-700 rounded-t-lg px-2 py-1 flex justify-start items-center" type="button" data-bs-toggle="collapse" data-bs-target="#aspects" aria-expanded="false" aria-controls="aspects">
                                     <h2 class="text-slate-200 text-xl font-bold tracking-wide">Aspects</h2>
                                 </button>
                                 
                                 {{-- body --}}
                                 <div class="collapse" id="aspects">
-                                    <div class="flex flex-col px-2 pb-2" id="aspects">
+                                    <div class="flex flex-col px-2 py-2" id="aspects">
                                         <div class="flex flex-col">
                                             <label for="hc">High Concept</label>
                                             <input type="text" name="highconcept" id="hc" placeholder="High Concept"
