@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Aspect extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['highconcept','trouble','relationship','aspect','aspect2'];
+
+    public function myCharacters()
+    {
+        return $this->hasMany(MyCharacter::class);
+    }
 }

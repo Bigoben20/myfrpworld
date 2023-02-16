@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('aspects', function (Blueprint $table) {
             $table->id();
+            $table->string('highconcept');
+            $table->string('trouble');
+            $table->string('relationship');
+            $table->string('aspect')->nullable();
+            $table->string('aspect2')->nullable();
+            $table->unsignedBigInteger('character_id');
+            $table->foreign('character_id')->references('id')->on('my_characters')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -11,11 +11,16 @@ class DataController extends Controller
     public function dashboard()
     {
         $user = User::find(Auth::id());
-        return view('dashboard',['user'=>$user]);
+        return view('user.dashboard',['user'=>$user]);
     }
 
     public function myCharacters()
     {
-        return view('my-characters');
+        return view('user.my-characters');
+    }
+
+    public function createCharacter()
+    {
+        return view('user.myCharacters.create');
     }
 }

@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stunts', function (Blueprint $table) {
+        Schema::create('vitals', function (Blueprint $table) {
             $table->id();
-            $table->string('stunts');
-            $table->integer('refresh')->default(0);
-            $table->integer('fp')->default(0);
+            $table->integer('physical')->default(0);
+            $table->integer('mental')->default(0);
+            $table->string('2')->nullable();
+            $table->string('4')->nullable();
+            $table->string('6')->nullable();
+            $table->string('8')->nullable();
             $table->unsignedBigInteger('character_id');
             $table->foreign('character_id')->references('id')->on('my_characters')->onDelete('cascade');
             $table->timestamps();
@@ -31,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stunts');
+        Schema::dropIfExists('vitals');
     }
 };

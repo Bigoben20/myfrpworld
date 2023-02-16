@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Skill extends Model
+class Vital extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','value'];
+    protected $fillable = ['physical','mental','2','4','6','8'];
 
     public function myCharacters()
     {
