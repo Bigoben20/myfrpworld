@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/my-characters', [DataController::class, 'myCharacters'])->name('myCharacters');
     Route::get('/my-characters/create', [DataController::class, 'createCharacter'])->name('character.create');
+    Route::post('/my-characters/create', [DataController::class, 'storeCharacter'])->name('character.store');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

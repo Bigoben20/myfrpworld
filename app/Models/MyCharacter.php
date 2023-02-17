@@ -14,28 +14,32 @@ class MyCharacter extends Model
         'type'
     ];
 
+    public function aspect()
+    {
+        return $this->hasOne(Aspect::class, 'character_id', 'id');
+    }
+
     public function skill()
     {
-        return $this->belongsTo(Skill::class);
+        return $this->hasOne(Skill::class, 'character_id', 'id');
     }
 
     public function stress()
     {
-        return $this->belongsTo(Stress::class);
+        return $this->hasOne(Stress::class, 'character_id', 'id');
     }
 
     public function stunt()
     {
-        return $this->belongsTo(Stunt::class);
+        return $this->hasOne(Stunt::class, 'character_id', 'id');
     }
 
     public function story()
     {
-        return $this->hasMany(Story::class);
+        return $this->belongsToMany(Story::class, 'character_id', 'id');
     }
     public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class, 'id', 'user_id');
     }
-
 }

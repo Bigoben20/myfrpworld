@@ -52,6 +52,7 @@ return new class extends Migration
     {
         Schema::table('skills', function (Blueprint $table) {
             $table->dropColumn([
+                'academics',
                 'athletics',
                 'burglary',
                 'contacts',

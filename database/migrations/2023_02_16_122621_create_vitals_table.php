@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->integer('physical')->default(0);
             $table->integer('mental')->default(0);
-            $table->string('2')->nullable();
-            $table->string('4')->nullable();
-            $table->string('6')->nullable();
-            $table->string('8')->nullable();
+            $table->string('mid')->nullable();
+            $table->string('moderate')->nullable();
+            $table->string('severe')->nullable();
+            $table->string('changer')->nullable();
             $table->unsignedBigInteger('character_id');
             $table->foreign('character_id')->references('id')->on('my_characters')->onDelete('cascade');
             $table->timestamps();

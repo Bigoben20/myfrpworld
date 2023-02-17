@@ -9,10 +9,10 @@ class Stunt extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['stunts','refresh','fp'];
+    protected $fillable = ['stunts', 'refresh', 'fp'];
 
     public function myCharacters()
     {
-        return $this->hasMany(MyCharacter::class);
+        return $this->belongsTo(MyCharacter::class);
     }
 }

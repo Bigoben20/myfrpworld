@@ -9,10 +9,10 @@ class Skill extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','value'];
+    protected $fillable = ['name', 'value'];
 
     public function myCharacters()
     {
-        return $this->hasMany(MyCharacter::class);
+        return $this->belongsTo(MyCharacter::class);
     }
 }
