@@ -25,6 +25,11 @@ class DataController extends Controller
         return view('user.my-characters');
     }
 
+    public function detailCharacter($id)
+    {
+        return view('user.myCharacters.details', compact('id'));
+    }
+
     public function createCharacter()
     {
         $stories = Story::where('user_id', Auth::id());

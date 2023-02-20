@@ -1,6 +1,6 @@
-<div class="overflow-x-auto shadow-md rounded-2xl bg-white">
-    <table class="w-full text-sm text-left text-slate-500 dark:text-slate-400 rounded-xl">
-        <thead class="text-xs uppercase text-slate-700 bg-slate-50 dark:bg-slate-700 dark:text-slate-400 rounded-xl">
+<div class="overflow-x-auto shadow-md bg-white dark:bg-transparent rounded-2xl">
+    <table class="w-full text-sm text-left text-slate-500 dark:text-slate-400">
+        <thead class="text-xs uppercase text-slate-700 bg-slate-50 dark:bg-slate-700 dark:text-slate-400">
             <th scope="col" class="w-1 px-4 py-3">
                 No
             </th>
@@ -20,7 +20,7 @@
         </thead>
         <tbody class="bg-white border-b">
             @forelse ($myCharacters as $myCharacter)
-                <tr class="border-b text-slate-900 dark:bg-slate-800 dark:border-slate-700">
+                <tr class="border-y text-slate-900 dark:text-slate-300 dark:bg-slate-800 dark:border-slate-700">
                     <td class="px-4 py-2">
                         {{ $myCharacter->id }}
                     </td>
@@ -53,7 +53,7 @@
                     <td class="px-4 py-2">
                     </td>
                     <td class="flex gap-2 px-4 py-3">
-                        <button
+                        <a href="/my-characters/{{ $myCharacter->id }}"
                             class="px-3
                     py-2.5
                     bg-blue-500
@@ -65,7 +65,7 @@
                     hover:bg-blue-600 hover:shadow-lg
                     focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0
                     active:bg-blue-700 active:shadow-lg"><i
-                                class="fa-solid fa-gear"></i> Details</button>
+                                class="fa-solid fa-gear"></i> Details</a>
 
                         <button
                             class="px-3

@@ -13,6 +13,6 @@
         </a>
     </div>
     <div>
-        @include('livewire.myCharacters.characters-table')
+        @include('livewire.includes.characters-table')
     </div>
 </div>
