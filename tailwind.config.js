@@ -8,17 +8,22 @@ module.exports = {
         './resources/views/**/*.blade.php',
         
         // elements
-        './src/**/*.{html,js}', 
-        './node_modules/tw-elements/dist/js/**/*.js'
+        "./src/**/*.{html,js}",
+        "./node_modules/tw-elements/dist/js/**/*.js",
+
     ],
 
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Josefin Sans', ...defaultTheme.fontFamily.sans],
             },
         },
     },
 
-    plugins: [require('@tailwindcss/forms'), require('tw-elements/dist/plugin')],
+    plugins: 
+    [
+        require('@tailwindcss/forms'),
+        require('tw-elements/dist/plugin'),
+    ],
 };
