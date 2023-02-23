@@ -18,7 +18,8 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
-    
+    <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script> 
+
 
 </head>
 
@@ -46,7 +47,8 @@
     <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <x-livewire-alert::scripts />
 </body>
 
 </html>

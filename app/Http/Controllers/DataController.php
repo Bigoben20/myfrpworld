@@ -66,7 +66,8 @@ class DataController extends Controller
     }
 
     public function storeCharacter(Request $request)
-    {
+    {        
+
         $request->validate([
             'name' => 'required',
             'highconcept' => 'required',
@@ -103,7 +104,6 @@ class DataController extends Controller
             'mentalcheck.required' => 'At least one of mental check must checked.',
             'required' => 'All skills has to be set.'
         ]);
-
         $character = new MyCharacter();
         $character->name = $request->name;
         $character->story->name = $request->story;

@@ -14,9 +14,21 @@ class MyCharacter extends Model
         'type'
     ];
 
+    public function setAttributes($name,$type)
+    {
+        $this->attributes['name'] = $name;
+        $this->attributes['type'] = $type;
+    }
+
+
+
     public function aspect()
     {
         return $this->hasOne(Aspect::class, 'character_id', 'id');
+    }
+    public function vital()
+    {
+        return $this->hasOne(Vital::class, 'character_id', 'id');
     }
 
     public function skill()
