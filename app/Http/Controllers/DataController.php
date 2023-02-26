@@ -75,26 +75,6 @@ class DataController extends Controller
             'relationship' => 'required',
             'physicalcheck' => 'required',
             'mentalcheck' => 'required',
-
-            'academics' => 'required',
-            'athletics' => 'required',
-            'burglary' => 'required',
-            'contacts' => 'required',
-            'crafts' => 'required',
-            'deceive' => 'required',
-            'drive' => 'required',
-            'empathy' => 'required',
-            'fight' => 'required',
-            'investigate' => 'required',
-            'lore' => 'required',
-            'notice' => 'required',
-            'physique' => 'required',
-            'provoke' => 'required',
-            'rapport' => 'required',
-            'resources' => 'required',
-            'shoot' => 'required',
-            'stealth' => 'required',
-            'will' => 'required',
         ], [
             'name.required' => 'Name is required.',
             'highconcept.required' => 'High concept is required.',
@@ -102,12 +82,12 @@ class DataController extends Controller
             'relationship.required' => 'Relationship is required.',
             'physicalcheck.required' => 'At least one of physical check must checked.',
             'mentalcheck.required' => 'At least one of mental check must checked.',
-            'required' => 'All skills has to be set.'
         ]);
         $character = new MyCharacter();
         $character->name = $request->name;
         $character->story->name = $request->story;
         $character->type = $request->type;
+        $character->notes = $request->notes;
         $character->user_id = Auth::id();
         $character->save();
 

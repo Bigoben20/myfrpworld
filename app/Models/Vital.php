@@ -9,7 +9,17 @@ class Vital extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['physical', 'mental', '2', '4', '6', '8'];
+    protected $fillable = ['physical', 'mental', 'mid', 'moderate', 'severe', 'changer'];
+
+    public function setAttributes($physical,$mental,$mid,$moderate,$severe,$changer)
+    {
+        $this->attributes['physical'] = $physical;
+        $this->attributes['mental'] = $mental;
+        $this->attributes['mid'] = $mid;
+        $this->attributes['moderate'] = $moderate;
+        $this->attributes['severe'] = $severe;
+        $this->attributes['changer'] = $changer;
+    }
 
     public function myCharacters()
     {

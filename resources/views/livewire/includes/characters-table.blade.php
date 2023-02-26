@@ -67,7 +67,7 @@
                     active:bg-blue-700 active:shadow-lg"><i
                                 class="fa-solid fa-gear"></i> Details</a>
 
-                        <button
+                        <button wire:click="delete({{ $myCharacter->id }})" data-te-toggle="modal" data-te-target="#deleteModal" data-te-ripple-init data-te-ripple-color="warning" type="button"
                             class="px-3
                     py-2.5
                     bg-red-500
@@ -92,3 +92,6 @@
         </tbody>
     </table>
 </div>
+
+{{-- delete modal --}}
+@include('livewire.modals.myCharactersModals.deleteModal')

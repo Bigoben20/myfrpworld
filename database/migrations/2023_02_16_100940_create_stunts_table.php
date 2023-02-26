@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('stunts', function (Blueprint $table) {
             $table->id();
-            $table->longText('stunts');
+            $table->longText('stunts')->nullable();
             $table->integer('refresh')->default(0);
             $table->integer('fp')->default(0);
             $table->unsignedBigInteger('character_id');

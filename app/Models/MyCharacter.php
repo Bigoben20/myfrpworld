@@ -11,15 +11,16 @@ class MyCharacter extends Model
 
     protected $fillabe = [
         'name',
-        'type'
+        'type',
+        'notes'
     ];
 
-    public function setAttributes($name,$type)
+    public function setAttributes($name,$type,$notes)
     {
         $this->attributes['name'] = $name;
         $this->attributes['type'] = $type;
+        $this->attributes['notes'] = $notes;
     }
-
 
 
     public function aspect()

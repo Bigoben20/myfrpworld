@@ -56,10 +56,11 @@
                         <div class="flex flex-col border border-gray-800 dark:border-gray-700 rounded-xl">
 
                             {{-- header --}}
-                            <div  class="bg-gray-700 rounded-lg" id="accordion-aspect" data-accordion="collapse" data-active-classes="bg-gray-700">
+                            <div class="bg-gray-700 rounded-lg" id="accordion-aspect" data-accordion="collapse" data-active-classes="bg-gray-700">
 
                                 <h2 id="aspects-heading" class="rounded-lg">
-                                    <button type="button" class="bg-gray-700 hover:bg-sky-900 rounded-t-lg px-2 py-1 flex justify-start items-center w-full transition-transform ease-in-out duration-150"
+                                    <button type="button"
+                                        class="bg-gray-700 hover:bg-sky-900 rounded-t-lg px-2 py-1 flex justify-start items-center w-full transition-transform ease-in-out duration-150"
                                         data-accordion-target="#aspects" aria-expanded="true" aria-controls="aspects">
                                         <span class="text-slate-200 text-xl font-bold tracking-wide">Aspects</span>
                                     </button>
@@ -105,7 +106,8 @@
                             <div class="bg-gray-700 rounded-lg" id="accordion-stunts" data-accordion="collapse" data-active-classes="bg-gray-700">
 
                                 <h2 id="stunts-heading">
-                                    <button type="button" class="bg-gray-700 hover:bg-sky-900 rounded-t-lg px-2 py-1 flex justify-start items-center w-full transition-transform ease-in-out duration-150"
+                                    <button type="button"
+                                        class="bg-gray-700 hover:bg-sky-900 rounded-t-lg px-2 py-1 flex justify-start items-center w-full transition-transform ease-in-out duration-150"
                                         data-accordion-target="#stunts" aria-expanded="true" aria-controls="stunts">
                                         <span class="text-slate-200 text-xl font-bold tracking-wide">Stunts</span>
                                     </button>
@@ -145,7 +147,8 @@
                             <div class="bg-gray-700 rounded-lg" id="accordion-vitals" data-accordion="collapse" data-active-classes="bg-gray-700">
 
                                 <h2 id="vitals-heading">
-                                    <button type="button" class="bg-gray-700 hover:bg-sky-900 rounded-t-lg px-2 py-1 flex justify-start items-center w-full transition-transform ease-in-out duration-150"
+                                    <button type="button"
+                                        class="bg-gray-700 hover:bg-sky-900 rounded-t-lg px-2 py-1 flex justify-start items-center w-full transition-transform ease-in-out duration-150"
                                         data-accordion-target="#vitals" aria-expanded="true" aria-controls="vitals">
                                         <span class="text-slate-200 text-xl font-bold tracking-wide">Vitals</span>
                                     </button>
@@ -219,7 +222,8 @@
                             <div class="bg-gray-700 rounded-lg" id="accordion-skills" data-accordion="collapse" data-active-classes="bg-gray-700">
 
                                 <h2 id="skills-heading">
-                                    <button type="button" class="bg-gray-700 hover:bg-sky-900 rounded-t-lg px-2 py-1 flex justify-start items-center w-full transition-transform ease-in-out duration-150"
+                                    <button type="button"
+                                        class="bg-gray-700 hover:bg-sky-900 rounded-t-lg px-2 py-1 flex justify-start items-center w-full transition-transform ease-in-out duration-150"
                                         data-accordion-target="#skills" aria-expanded="true" aria-controls="skills">
                                         <span class="text-slate-200 text-xl font-bold tracking-wide">Skills</span>
                                     </button>
@@ -244,7 +248,24 @@
                     <div
                         class="fixed flex justify-between md:justify-end items-center gap-4 bottom-0 left-0 right-0 w-full px-5 md:px-40 py-5 
                                 bg-white dark:bg-gray-700 shadow border-t border-slate-200">
-
+                        <div class="flex justify-center">
+                            <div>
+                                <div class="relative" data-te-dropdown-position="dropup">
+                                    <button
+                                        class="mt-1 flex items-center whitespace-nowrap rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none"
+                                        type="button" id="notesButton" data-te-dropdown-toggle-ref aria-expanded="false" data-te-ripple-init data-te-ripple-color="light">
+                                        Dropup
+                                        <span class="ml-2 w-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+                                                <path fill-rule="evenodd"
+                                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                         <button type="submit"
                             class="px-10 md:px-20
                             shadow-md

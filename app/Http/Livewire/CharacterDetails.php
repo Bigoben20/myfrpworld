@@ -4,6 +4,9 @@ namespace App\Http\Livewire;
 
 use App\Models\Aspect;
 use App\Models\MyCharacter;
+use App\Models\Skill;
+use App\Models\Stunt;
+use App\Models\Vital;
 use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
@@ -46,6 +49,7 @@ class CharacterDetails extends Component
 
     public $myCharacterName;
     public $myCharacterType;
+    public $myCharacterNotes;
 
     //  Aspects
     public $highConcept;
@@ -94,6 +98,7 @@ class CharacterDetails extends Component
         $this->myCharacter = MyCharacter::where('id', $this->myCharacterId)->first();
         $this->myCharacterName = $this->myCharacter->name;
         $this->myCharacterType = $this->myCharacter->type;
+        $this->myCharacterNotes = $this->myCharacter->notes;
 
         //  Aspects
         $this->highConcept = $this->myCharacter->aspect->highconcept;
@@ -118,16 +123,38 @@ class CharacterDetails extends Component
         $this->moderate = $this->myCharacter->vital->moderate;
         $this->severe = $this->myCharacter->vital->severe;
         $this->changer = $this->myCharacter->vital->changer;
+
+        // Skills
+        $this->academics = $this->myCharacter->skill->academics;
+        $this->athletics = $this->myCharacter->skill->athletics;
+        $this->burglary = $this->myCharacter->skill->burglary;
+        $this->contacts = $this->myCharacter->skill->contacts;
+        $this->crafts = $this->myCharacter->skill->crafts;
+        $this->deceive = $this->myCharacter->skill->deceive;
+        $this->drive = $this->myCharacter->skill->drive;
+        $this->empathy = $this->myCharacter->skill->empathy;
+        $this->fight = $this->myCharacter->skill->fight;
+        $this->investigate = $this->myCharacter->skill->investigate;
+        $this->lore = $this->myCharacter->skill->lore;
+        $this->notice = $this->myCharacter->skill->notice;
+        $this->physique = $this->myCharacter->skill->physique;
+        $this->provoke = $this->myCharacter->skill->provoke;
+        $this->rapport = $this->myCharacter->skill->rapport;
+        $this->resources = $this->myCharacter->skill->resources;
+        $this->shoot = $this->myCharacter->skill->shoot;
+        $this->stealth = $this->myCharacter->skill->stealth;
+        $this->will = $this->myCharacter->skill->will;
     }
 
     public function updateCharacter($id)
-    {
+    {   
         try {
 
             $myCharacter = MyCharacter::find($id);
             $myCharacter->setAttributes(
                 $this->myCharacterName,
-                $this->myCharacterType
+                $this->myCharacterType,
+                $this->myCharacterNotes
             );
 
             $aspects = Aspect::where('character_id',$id)->first();
@@ -139,16 +166,64 @@ class CharacterDetails extends Component
                 $this->aspect2
             );
 
+            $stunts = Stunt::where('character_id',$id)->first();
+            $stunts->setAttributes(
+                $this->stunts,
+                $this->refresh,
+                $this->fp,
+            );
+
+            $vitals = Vital::where('character_id',$id)->first();
+            $vitals->setAttributes(
+                count($this->physical),
+                count($this->mental),
+                $this->mid,
+                $this->moderate,
+                $this->severe,
+                $this->changer,
+            );
+            
+            $skills = Skill::where('character_id',$id)->first();
+            $skills->setAttributes(
+                $this->academics,
+                $this->athletics,
+                $this->burglary,
+                $this->contacts,
+                $this->crafts,
+                $this->deceive,
+                $this->drive,
+                $this->empathy,
+                $this->fight,
+                $this->investigate,
+                $this->lore,
+                $this->notice,
+                $this->physique,
+                $this->provoke,
+                $this->rapport,
+                $this->resources,
+                $this->shoot,
+                $this->stealth,
+                $this->will
+            );
+
+            
             $myCharacter->save();
             $aspects->save();
+            $stunts->save();
+            $vitals->save();
+            $skills->save();
 
 
             $this->alert('success', "$this->myCharacterName başarıyla güncellendi.");
-            $this->resetInput();
-
         } catch (\Exception $ex) {
-            session()->flash('success', 'Something goes wrong!!');
+            $this->alert('error', "$this->myCharacterName güncellenirken bir hata oluştu.");
+            dd($ex);
         }
+    }
+
+    public function destroy($id)
+    {
+        # code...
     }
 
     public function render()

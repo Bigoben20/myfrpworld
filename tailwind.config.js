@@ -17,7 +17,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Josefin Sans', ...defaultTheme.fontFamily.sans],
-            },
+            }
         },
     },
 
