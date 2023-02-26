@@ -2,7 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Aspect;
 use App\Models\MyCharacter;
+use App\Models\Skill;
+use App\Models\Stunt;
+use App\Models\Vital;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
@@ -96,52 +101,63 @@ class CharacterCreate extends Component
                 $character->name = $this->myCharacterName;
                 $character->type = $this->myCharacterType;
                 $character->notes = $this->myCharacterNotes;
-    
-                // datacontrollerdaki gibi her şeyi ayrı kaydedicez karakter id ile
-                $character->aspect->highConcept = $this->highConcept;
-                $character->aspect->trouble = $this->trouble;
-                $character->aspect->relationship = $this->relationship;
-                $character->aspect->aspect = $this->aspect;
-                $character->aspect->aspect2 = $this->aspect2;
-                
-                $character->stunt->stunts = $this->stunts;
-                $character->stunt->refresh = $this->refresh;
-                $character->stunt->fp = $this->fp;
-                
-                $character->vital->physical = count($this->physicalcheck);
-                $character->vital->mental = count($this->mentalcheck);
-                $character->vital->mid = $this->mid;
-                $character->vital->moderate = $this->moderate;
-                $character->vital->severe = $this->severe;
-                $character->vital->changer = $this->changer;
-                
-                $character->skill->academics = $this->academics;
-                $character->skill->athletics = $this->athletics;
-                $character->skill->burglary = $this->burglary;
-                $character->skill->contacts = $this->contacts;
-                $character->skill->crafts = $this->crafts;
-                $character->skill->deceive = $this->deceive;
-                $character->skill->drive = $this->drive;
-                $character->skill->empathy = $this->empathy;
-                $character->skill->fight = $this->fight;
-                $character->skill->investigate = $this->investigate;
-                $character->skill->lore = $this->lore;
-                $character->skill->notice = $this->notice;
-                $character->skill->physique = $this->physique;
-                $character->skill->provoke = $this->provoke;
-                $character->skill->rapport = $this->rapport;
-                $character->skill->resources = $this->resources;
-                $character->skill->shoot = $this->shoot;
-                $character->skill->stealth = $this->stealth;
-                $character->skill->will = $this->will;
-            
+                $character->user_id = Auth::id();
                 $character->save();
-    
-    
+
+                $aspects = new Aspect();
+                $aspects->highConcept = $this->highConcept;
+                $aspects->trouble = $this->trouble;
+                $aspects->relationship = $this->relationship;
+                $aspects->aspect = $this->aspect;
+                $aspects->aspect2 = $this->aspect2;
+                $aspects->character_id = $character->id;
+                
+                $stunts = new Stunt();
+                $stunts->stunts = $this->stunts;
+                $stunts->refresh = $this->refresh;
+                $stunts->fp = $this->fp;
+                $stunts->character_id = $character->id;
+                
+                $vitals = new Vital();
+                $vitals->physical = count($this->physicalcheck);
+                $vitals->mental = count($this->mentalcheck);
+                $vitals->mid = $this->mid;
+                $vitals->moderate = $this->moderate;
+                $vitals->severe = $this->severe;
+                $vitals->changer = $this->changer;
+                $vitals->character_id = $character->id;
+                
+                $skills = new Skill();
+                $skills->academics = $this->academics;
+                $skills->athletics = $this->athletics;
+                $skills->burglary = $this->burglary;
+                $skills->contacts = $this->contacts;
+                $skills->crafts = $this->crafts;
+                $skills->deceive = $this->deceive;
+                $skills->drive = $this->drive;
+                $skills->empathy = $this->empathy;
+                $skills->fight = $this->fight;
+                $skills->investigate = $this->investigate;
+                $skills->lore = $this->lore;
+                $skills->notice = $this->notice;
+                $skills->physique = $this->physique;
+                $skills->provoke = $this->provoke;
+                $skills->rapport = $this->rapport;
+                $skills->resources = $this->resources;
+                $skills->shoot = $this->shoot;
+                $skills->stealth = $this->stealth;
+                $skills->will = $this->will;
+                $skills->character_id = $character->id;
+
+                $aspects->save();
+                $stunts->save();
+                $vitals->save();
+                $skills->save();
+
             $this->alert('success', "$this->myCharacterName başarıyla oluşturuldu.");
+            redirect()->route('myCharacters')->with('success','Character created successfully');
         } catch (\Exception $ex) {
-            $this->alert('error', "$this->myCharacterName oluşturuluken bir hata oluştu.");
-            dd($ex);
+            $this->alert('error', $ex->errorInfo[2]);
         }
     }
 

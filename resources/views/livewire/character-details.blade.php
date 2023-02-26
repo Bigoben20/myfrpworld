@@ -1,4 +1,4 @@
-    <div wire:ignore.self class="container">
+    <div wire:ignore.self>
         <div class="p-6 text-gray-900 dark:text-gray-100">
             <form wire:submit.prevent='updateCharacter({{ $myCharacterId }})'>
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
@@ -117,20 +117,20 @@
 
 
                             {{-- body --}}
-                            <div class="flex flex-col px-2 py-2" id="stunts" aria-labelledby="stunts-heading">
+                            <div class="flex flex-col px-2 py-2 gap-2" id="stunts" aria-labelledby="stunts-heading">
                                 <div class="flex flex-col">
-                                    <textarea placeholder="Stunts" rows="31" wire:model="stunts"
+                                    <textarea placeholder="Stunts" rows="31" wire:model.lazy="stunts"
                                         class="border border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:bg-gray-900 rounded-lg focus:ring-sky-500 focus:ring-offset-0"></textarea>
                                 </div>
                                 <div class="flex justify-between items-center">
                                     <div class="flex justify-center items-center gap-2">
-                                        <input class="appearance-none w-16 h-16 pl-4 pr-2 bg-slate-200 border-none text-3xl focus:ring-0 rounded-full" type="number" value="3"
+                                        <input class="appearance-none w-16 h-16 pl-4 pr-2 bg-slate-200 dark:bg-gray-700  border-slate-200 dark:border-slate-600 text-3xl focus:ring-0 rounded-full" type="number" value="3"
                                             wire:model="refresh" min="0">
                                         <h3 class="text-lg md:text-3xl">Refresh</h3>
                                     </div>
                                     <div class="flex justify-center items-center gap-2">
                                         <h3 class="text-lg md:text-3xl">Fate Points</h3>
-                                        <input class="appearance-none w-16 h-16 pl-4 pr-2 bg-slate-200 border-none text-3xl focus:ring-0 rounded-full" type="number" value="3" wire:model="fp"
+                                        <input class="appearance-none w-16 h-16 pl-4 pr-2 bg-slate-200 dark:bg-gray-700  border-slate-200 dark:border-slate-600 text-3xl focus:ring-0 rounded-full" type="number" value="3" wire:model="fp"
                                             min="0">
                                     </div>
                                 </div>
@@ -235,7 +235,7 @@
                             <div class="flex flex-col px-2 py-2" id="skills" aria-labelledby="skills-heading">
                                 @foreach ($skills as $skill)
                                     <div class="flex items-center gap-2 mb-2">
-                                        <input class="appearance-none dark:bg-gray-700 w-20 h-10 pl-4 pr-2 border-slate-200 dark:border-slate-600 text-xl focus:ring-0 rounded-lg" type="number"
+                                        <input class="appearance-none w-20 h-10 pl-4 pr-2 dark:bg-gray-700  border-slate-200 dark:border-slate-600 text-xl focus:ring-0 rounded-lg" type="number"
                                             wire:model="{{ $skill }}">
                                         <h3 class="text-lg md:text-xl capitalize font-semibold">{{ $skill }}</h3>
                                     </div>
@@ -246,23 +246,28 @@
 
                     {{-- save button --}}
                     <div
-                        class="fixed flex justify-between md:justify-end items-center gap-4 bottom-0 left-0 right-0 w-full px-5 md:px-40 py-5 
+                        class="fixed flex justify-between items-center gap-4 bottom-0 left-0 right-0 w-full px-5 md:px-40 py-5 
                                 bg-white dark:bg-gray-700 shadow border-t border-slate-200">
                         <div class="flex justify-center">
                             <div>
                                 <div class="relative" data-te-dropdown-position="dropup">
-                                    <button
-                                        class="mt-1 flex items-center whitespace-nowrap rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none"
-                                        type="button" id="notesButton" data-te-dropdown-toggle-ref aria-expanded="false" data-te-ripple-init data-te-ripple-color="light">
-                                        Dropup
-                                        <span class="ml-2 w-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-                                                <path fill-rule="evenodd"
-                                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </span>
+                                    <button type="submit"
+                                        class="px-6 flex justify-between items-end gap-2
+                                                shadow-md
+                                                py-2.5
+                                                bg-amber-500
+                                                text-white
+                                                font-medium
+                                                text-md
+                                                leading-tight
+                                                rounded-xl
+                                                hover:bg-amber-600 hover:shadow-lg
+                                                focus:bg-amber-600 focus:shadow-lg focus:outline-none focus:ring-0
+                                                active:bg-amber-700 active:shadow-lg"
+                                        id="notesButton" data-te-dropdown-toggle-ref aria-expanded="false" data-te-ripple-init data-te-ripple-color="light">
+                                        Notlar <i class="fa-solid fa-chevron-up"></i>
                                     </button>
+                                    @include('livewire.modals.myCharactersModals.notes')
                                 </div>
                             </div>
                         </div>

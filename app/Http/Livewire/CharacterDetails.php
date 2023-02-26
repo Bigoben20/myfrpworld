@@ -108,7 +108,12 @@ class CharacterDetails extends Component
         $this->aspect2 = $this->myCharacter->aspect->aspect2;
 
         // Stunts
-        $this->stunts = $this->myCharacter->stunt->stunts;
+        if ($this->myCharacter->stunt->stunts == null) {
+            $this->stunts = "";
+        }
+        else {
+            $this->stunts = $this->myCharacter->stunt->stunts;
+        }
         $this->refresh = $this->myCharacter->stunt->refresh;
         $this->fp = $this->myCharacter->stunt->fp;
 
