@@ -49,7 +49,7 @@
                                 <div class="flex flex-col">
                                     <label for="type">Type</label>
                                     <select type="text" wire:model="myCharacterType" id="type" placeholder="Type" class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0">
-                                        <option value="0"> None</option>
+                                        <option value=""> Choose a type</option>
                                         @forelse ($types as $type)
                                             <option value="{{ $type[1] }}"><span class="capitalize">{{ $type[0] }}</span></option>
                                         @empty
@@ -228,25 +228,26 @@
                     </div>
 
                     {{-- save button --}}
-                    <div
-                        class="fixed flex justify-between md:justify-end items-center gap-4 bottom-0 left-0 right-0 w-full px-5 md:px-40 py-5 
-                                bg-white shadow border-t border-slate-200">
-                        <div class="text-lg md:text-3xl">
-                            Create Character
+                    <div class="fixed flex justify-center items-center gap-4 bottom-5 left-0 right-0 w-full">
+                        <div
+                            class="px-5 py-5 bg-white/30 dark:bg-gray-400/30 backdrop-blur-md shadow-xl border border-slate-200 dark:border-slate-600
+                            flex justify-end items-center max-w-[90%] md:max-w-[50%] rounded-2xl">
+                            <div class="text-md md:text-2xl text-gray-700 dark:text-gray-400 mr-5 font-bold tracking-wider">
+                                Create Character
+                            </div>
+                            <button type="submit"
+                                class="px-10
+                                py-2.5
+                                bg-green-500
+                                text-white
+                                font-medium
+                                text-md
+                                leading-tight
+                                rounded-xl
+                                hover:bg-green-600 hover:shadow-lg
+                                focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0
+                                active:bg-green-700 active:shadow-lg">Save</button>
                         </div>
-                        <button type="submit"
-                            class="px-10 md:px-20
-                            shadow-md
-                            py-2.5
-                            bg-green-500
-                            text-white
-                            font-medium
-                            text-md
-                            leading-tight
-                            rounded-xl
-                            hover:bg-green-600 hover:shadow-lg
-                            focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0
-                            active:bg-green-700 active:shadow-lg">Create</button>
                     </div>
                 </div>
             </form>

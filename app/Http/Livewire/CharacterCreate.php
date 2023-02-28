@@ -60,8 +60,8 @@ class CharacterCreate extends Component
 
     //  Stunts
     public $stunts;
-    public $refresh;
-    public $fp;
+    public $refresh = 3;
+    public $fp = 3;
 
     //  Vitals
     public $physicalcheck = [];
@@ -92,73 +92,97 @@ class CharacterCreate extends Component
     public $stealth;
     public $will;
 
+    protected $rules = [
+        'myCharacterName' => 'required',
+        'myCharacterType' => 'required',
+        'highConcept' => 'required',
+        'trouble' => 'required',
+        'relationship' => 'required',
+    ];
+
+    protected $messages = [
+        'myCharacterName.required' => 'Character name cannot be empty.',
+        'myCharacterType.required' => 'Character type cannot be empty.',
+        'highConcept.required' => 'High concept cannot be empty.',
+        'trouble.required' => 'Trouble cannot be empty.',
+        'relationship.required' => 'Relationship cannot be empty.',
+    ];
+
     public function store()
     {
-        try {
-            
-                $character = new MyCharacter();
+        
 
-                $character->name = $this->myCharacterName;
-                $character->type = $this->myCharacterType;
-                $character->notes = $this->myCharacterNotes;
-                $character->user_id = Auth::id();
-                $character->save();
+        $character = new MyCharacter();
 
-                $aspects = new Aspect();
-                $aspects->highConcept = $this->highConcept;
-                $aspects->trouble = $this->trouble;
-                $aspects->relationship = $this->relationship;
-                $aspects->aspect = $this->aspect;
-                $aspects->aspect2 = $this->aspect2;
-                $aspects->character_id = $character->id;
+        $character->name = $this->myCharacterName;
+        $character->type = $this->myCharacterType;
+        $character->notes = $this->myCharacterNotes;
+        $character->user_id = Auth::id();
+
+
+        $aspects = new Aspect();
+        $aspects->highConcept = $this->highConcept;
+        $aspects->trouble = $this->trouble;
+        $aspects->relationship = $this->relationship;
+        $aspects->aspect = $this->aspect;
+        $aspects->aspect2 = $this->aspect2;
+        
+        $stunts = new Stunt();
+        $stunts->stunts = $this->stunts;
+        $stunts->refresh = $this->refresh;
+        $stunts->fp = $this->fp;
+        
+        $vitals = new Vital();
+        $vitals->physical = count($this->physicalcheck);
+        $vitals->mental = count($this->mentalcheck);
+        $vitals->mid = $this->mid;
+        $vitals->moderate = $this->moderate;
+        $vitals->severe = $this->severe;
+        $vitals->changer = $this->changer;
+        
+        $skills = new Skill();
+        $skills->academics = $this->academics;
+        $skills->athletics = $this->athletics;
+        $skills->burglary = $this->burglary;
+        $skills->contacts = $this->contacts;
+        $skills->crafts = $this->crafts;
+        $skills->deceive = $this->deceive;
+        $skills->drive = $this->drive;
+        $skills->empathy = $this->empathy;
+        $skills->fight = $this->fight;
+        $skills->investigate = $this->investigate;
+        $skills->lore = $this->lore;
+        $skills->notice = $this->notice;
+        $skills->physique = $this->physique;
+        $skills->provoke = $this->provoke;
+        $skills->rapport = $this->rapport;
+        $skills->resources = $this->resources;
+        $skills->shoot = $this->shoot;
+        $skills->stealth = $this->stealth;
+        $skills->will = $this->will;
+
+        $this->validate();
+
+        $character->save();
+
+        $aspects->character_id = $character->id;
+        $stunts->character_id = $character->id;
+        $vitals->character_id = $character->id;
+        $skills->character_id = $character->id;
+
+        $aspects->save();
+        $stunts->save();
+        $vitals->save();
+        $skills->save();
+
+        redirect()->route('myCharacters')->with('success','Character created successfully');
+        // try {
                 
-                $stunts = new Stunt();
-                $stunts->stunts = $this->stunts;
-                $stunts->refresh = $this->refresh;
-                $stunts->fp = $this->fp;
-                $stunts->character_id = $character->id;
-                
-                $vitals = new Vital();
-                $vitals->physical = count($this->physicalcheck);
-                $vitals->mental = count($this->mentalcheck);
-                $vitals->mid = $this->mid;
-                $vitals->moderate = $this->moderate;
-                $vitals->severe = $this->severe;
-                $vitals->changer = $this->changer;
-                $vitals->character_id = $character->id;
-                
-                $skills = new Skill();
-                $skills->academics = $this->academics;
-                $skills->athletics = $this->athletics;
-                $skills->burglary = $this->burglary;
-                $skills->contacts = $this->contacts;
-                $skills->crafts = $this->crafts;
-                $skills->deceive = $this->deceive;
-                $skills->drive = $this->drive;
-                $skills->empathy = $this->empathy;
-                $skills->fight = $this->fight;
-                $skills->investigate = $this->investigate;
-                $skills->lore = $this->lore;
-                $skills->notice = $this->notice;
-                $skills->physique = $this->physique;
-                $skills->provoke = $this->provoke;
-                $skills->rapport = $this->rapport;
-                $skills->resources = $this->resources;
-                $skills->shoot = $this->shoot;
-                $skills->stealth = $this->stealth;
-                $skills->will = $this->will;
-                $skills->character_id = $character->id;
 
-                $aspects->save();
-                $stunts->save();
-                $vitals->save();
-                $skills->save();
-
-            $this->alert('success', "$this->myCharacterName başarıyla oluşturuldu.");
-            redirect()->route('myCharacters')->with('success','Character created successfully');
-        } catch (\Exception $ex) {
-            $this->alert('error', $ex->errorInfo[2]);
-        }
+        //     $this->alert('success', "$this->myCharacterName başarıyla oluşturuldu.");
+        // } catch (\Exception $ex) {
+        //     $this->alert('error', $ex->errorInfo[2]);
+        // }
     }
 
     public function render()

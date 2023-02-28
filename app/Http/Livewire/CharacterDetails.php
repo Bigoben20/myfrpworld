@@ -92,6 +92,25 @@ class CharacterDetails extends Component
     public $stealth;
     public $will;
 
+    public $countp = 0;
+    public $countm = 0;
+
+    protected $rules = [
+        'myCharacterName' => 'required',
+        'myCharacterType' => 'required',
+        'highConcept' => 'required',
+        'trouble' => 'required',
+        'relationship' => 'required',
+    ];
+
+    protected $messages = [
+        'myCharacterName.required' => 'Character name cannot be empty.',
+        'myCharacterType.required' => 'Character type cannot be empty.',
+        'highConcept.required' => 'High concept cannot be empty.',
+        'trouble.required' => 'Trouble cannot be empty.',
+        'relationship.required' => 'Relationship cannot be empty.',
+    ];
+
     public function mount($id)
     {
         $this->myCharacterId = $id;
@@ -118,11 +137,14 @@ class CharacterDetails extends Component
         $this->fp = $this->myCharacter->stunt->fp;
 
         //  Vitals
+        // unset($this->physical);
+        // unset($this->mental);
+
         for ($i = 0; $i < $this->myCharacter->vital->physical; $i++) {
-            $this->physical[$i] = "on";
+            $this->physical[$i] = true;
         }
         for ($i = 0; $i < $this->myCharacter->vital->mental; $i++) {
-            $this->mental[$i] = "on";
+            $this->mental[$i] = true;
         }
         $this->mid = $this->myCharacter->vital->mid;
         $this->moderate = $this->myCharacter->vital->moderate;
@@ -153,7 +175,6 @@ class CharacterDetails extends Component
 
     public function updateCharacter($id)
     {   
-        try {
 
             $myCharacter = MyCharacter::find($id);
             $myCharacter->setAttributes(
@@ -178,10 +199,21 @@ class CharacterDetails extends Component
                 $this->fp,
             );
 
+
+            foreach ($this->physical as $key => $value) {
+                if ($value == true) {
+                    $this->countp ++;
+                }
+            }
+            foreach ($this->mental as $key => $value) {
+                if ($value == true) {
+                    $this->countm ++;
+                }
+            }
             $vitals = Vital::where('character_id',$id)->first();
             $vitals->setAttributes(
-                count($this->physical),
-                count($this->mental),
+                $this->countp,
+                $this->countm,
                 $this->mid,
                 $this->moderate,
                 $this->severe,
@@ -211,6 +243,7 @@ class CharacterDetails extends Component
                 $this->will
             );
 
+            $this->validate();
             
             $myCharacter->save();
             $aspects->save();
@@ -218,12 +251,12 @@ class CharacterDetails extends Component
             $vitals->save();
             $skills->save();
 
-
             $this->alert('success', "$this->myCharacterName başarıyla güncellendi.");
-        } catch (\Exception $ex) {
-            $this->alert('error', "$this->myCharacterName güncellenirken bir hata oluştu.");
-            dd($ex);
-        }
+
+            $this->countp = 0;
+            $this->countm = 0;
+
+        
     }
 
     public function destroy($id)
