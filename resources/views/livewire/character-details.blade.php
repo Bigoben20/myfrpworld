@@ -1,5 +1,4 @@
-    <div wire:ignore.self>
-        <div class="p-6 text-gray-900 dark:text-gray-100">
+        <div wire:ignore.self class="p-6 text-gray-900 dark:text-gray-100">
             <form wire:submit.prevent='updateCharacter({{ $myCharacterId }})'>
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
                     {{-- name, type and story --}}
@@ -119,19 +118,18 @@
                             {{-- body --}}
                             <div class="flex flex-col px-2 py-2 gap-2" id="stunts" aria-labelledby="stunts-heading">
                                 <div class="flex flex-col">
-                                    <textarea placeholder="Stunts" rows="31" wire:model.lazy="stunts"
-                                        class="border border-gray-300 dark:border-gray-700 dark:bg-gray-900 rounded-lg focus:ring-sky-500 focus:ring-offset-0"></textarea>
+                                    <textarea placeholder="Stunts" rows="31" wire:model.lazy="stunts" class="border border-gray-300 dark:border-gray-700 dark:bg-gray-900 rounded-lg focus:ring-sky-500 focus:ring-offset-0"></textarea>
                                 </div>
                                 <div class="flex justify-between items-center">
                                     <div class="flex justify-center items-center gap-2">
-                                        <input class="appearance-none w-16 h-16 pl-4 pr-2 bg-slate-200 dark:bg-gray-700  border-slate-200 dark:border-slate-600 text-3xl focus:ring-0 rounded-full" type="number" value="3"
-                                            wire:model="refresh" min="0">
+                                        <input class="appearance-none w-16 h-16 pl-4 pr-2 bg-slate-200 dark:bg-gray-700  border-slate-200 dark:border-slate-600 text-3xl focus:ring-0 rounded-full"
+                                            type="number" value="3" wire:model="refresh" min="0">
                                         <h3 class="text-lg md:text-3xl">Refresh</h3>
                                     </div>
                                     <div class="flex justify-center items-center gap-2">
                                         <h3 class="text-lg md:text-3xl">Fate Points</h3>
-                                        <input class="appearance-none w-16 h-16 pl-4 pr-2 bg-slate-200 dark:bg-gray-700  border-slate-200 dark:border-slate-600 text-3xl focus:ring-0 rounded-full" type="number" value="3" wire:model="fp"
-                                            min="0">
+                                        <input class="appearance-none w-16 h-16 pl-4 pr-2 bg-slate-200 dark:bg-gray-700  border-slate-200 dark:border-slate-600 text-3xl focus:ring-0 rounded-full"
+                                            type="number" value="3" wire:model="fp" min="0">
                                     </div>
                                 </div>
                             </div>
@@ -288,4 +286,3 @@
                 </div>
             </form>
         </div>
-    </div>

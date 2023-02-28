@@ -7,7 +7,7 @@
             <th scope="col" class="px-4 py-3 min-w-[200px]">
                 Name
             </th>
-            <th scope="col" class="px-4 py-3 ">
+            <th scope="col" class="px-4 py-3 w-full">
                 Highconcept
             </th>
             <th scope="col" class="px-4 py-3 ">
@@ -55,7 +55,7 @@
                     <td class="flex gap-2 px-4 py-3">
                         <div class="flex justify-center">
                             <div>
-                              <div class="relative" data-te-dropdown-ref>
+                              <div class="" data-te-dropdown-ref>
                                 <button
                                   class="rounded-full hover:bg-gray-100 active:bg-gray-100 dark:hover:bg-gray-700 dark:active:bg-gray-600 w-10 h-10 text-xl"
                                   type="button"
@@ -68,38 +68,20 @@
                                   
                                 </button>
                                 <ul
-                                  class="absolute z-[1000] float-left m-0 p-2 hidden min-w-max list-none overflow-hidden rounded-2xl border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-gray-700 [&[data-te-dropdown-show]]:flex [&[data-te-dropdown-show]]:flex-col [&[data-te-dropdown-show]]:justify-center [&[data-te-dropdown-show]]:items-stretch"
+                                  class="absolute z-[1000] m-0 p-2 hidden min-w-max list-none overflow-hidden rounded-2xl border border-gray-200 dark:bg-gray-600 bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-gray-700 [&[data-te-dropdown-show]]:flex [&[data-te-dropdown-show]]:flex-col [&[data-te-dropdown-show]]:justify-center [&[data-te-dropdown-show]]:items-stretch"
                                   aria-labelledby="menuButton{{ $myCharacter->id }}"
                                   data-te-dropdown-menu-ref>
-                                  <li>
+                                  <li class="flex">
                                     <a href="/my-characters/{{ $myCharacter->id }}"
-                                        class="px-3
-                                py-2.5
-                                bg-blue-500
-                                text-white
-                                font-medium
-                                text-md
-                                leading-tight
-                                rounded-xl
-                                hover:bg-blue-600 hover:shadow-lg
-                                focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0
-                                active:bg-blue-700 active:shadow-lg"><i
-                                            class="fa-solid fa-gear"></i> Details</a>
+                                        class="rounded-full hover:bg-gray-100 active:bg-gray-100 dark:hover:bg-gray-700 dark:active:bg-gray-600 w-10 h-10 text-xl flex justify-center items-center">
+                                        <i class="fa-solid fa-gear"></i>
+                                    </a>
                                   </li>
-                                  <li>
+                                  <li class="flex">
                                     <button wire:click="delete({{ $myCharacter->id }})" data-te-toggle="modal" data-te-target="#deleteModal" data-te-ripple-init data-te-ripple-color="warning" type="button"
-                                        class="px-3
-                                py-2.5
-                                bg-red-500
-                                text-white
-                                font-medium
-                                text-md
-                                leading-tight
-                                rounded-xl
-                                hover:bg-red-600 hover:shadow-lg
-                                focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0
-                                active:bg-red-700 active:shadow-lg"><i
-                                            class="fa-solid fa-trash"></i> Delete</button>
+                                        class="rounded-full text-red-600 hover:bg-red-100 active:bg-red-100 dark:hover:bg-red-700 dark:active:bg-red-600 w-10 h-10 text-xl flex justify-center items-center">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
                                   </li>
                                 </ul>
                               </div>

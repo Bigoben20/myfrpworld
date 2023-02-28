@@ -17,9 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('summary');
-            $table->string('props');
-            $table->unsignedBigInteger('character_id');
-            $table->foreign('character_id')->references('id')->on('my_characters')->onDelete('cascade');
+            $table->string('genre');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

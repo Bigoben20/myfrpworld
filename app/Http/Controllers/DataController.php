@@ -34,4 +34,9 @@ class DataController extends Controller
     {
         return view('user.myCharacters.create');
     }
+
+    public function myStories()
+    {
+        return view('user.my-stories');
+    }
 }
