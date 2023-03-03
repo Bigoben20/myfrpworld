@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-lg text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Welcome,') }} <span class="text-xl">{{ $user->name }}</span>
+        <h2 class="font-medium text-lg text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Welcome') }}, <span class="text-xl font-bold">{{ $user->name }}</span>
         </h2>
         <h3>
             

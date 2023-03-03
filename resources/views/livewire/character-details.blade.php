@@ -235,7 +235,7 @@
                                     <div class="flex items-center gap-2 mb-2">
                                         <input class="appearance-none w-20 h-10 pl-4 pr-2 dark:bg-gray-700  border-slate-200 dark:border-slate-600 text-xl focus:ring-0 rounded-lg" type="number"
                                             wire:model="{{ $skill }}">
-                                        <h3 class="text-lg md:text-xl capitalize font-semibold">{{ $skill }}</h3>
+                                        <h3 class="text-lg md:text-xl capitalize font-semibold">{{ __($skill) }}</h3>
                                     </div>
                                 @endforeach
                             </div>
@@ -263,14 +263,14 @@
                                                     focus:bg-amber-600 focus:shadow-lg focus:outline-none focus:ring-0
                                                     active:bg-amber-700 active:shadow-lg"
                                             id="notesButton" data-te-dropdown-toggle-ref aria-expanded="false" data-te-ripple-init data-te-ripple-color="light">
-                                            Notlar <i class="fa-solid fa-chevron-up"></i>
+                                            {{ __('Notes') }} <i class="fa-solid fa-chevron-up"></i>
                                         </button>
                                         @include('livewire.modals.myCharactersModals.notes')
                                     </div>
                                 </div>
                             </div>
                             <button type="submit"
-                                class="px-10
+                                class="px-6
                                 py-2.5
                                 bg-green-500
                                 text-white
@@ -280,7 +280,7 @@
                                 rounded-xl
                                 hover:bg-green-600 hover:shadow-lg
                                 focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0
-                                active:bg-green-700 active:shadow-lg">Save</button>
+                                active:bg-green-700 active:shadow-lg">{{ __("Save") }}</button>
                         </div>
                     </div>
                 </div>

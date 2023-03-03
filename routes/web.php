@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\LocalizeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\Localize;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get("locale/{lange}", [LocalizeController::class, 'setLang']);
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,7 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-characters/{id}', [DataController::class, 'detailCharacter'])->name('character.detail');
 
     Route::get('/my-stories', [DataController::class, 'myStories'])->name('myStories');
-
 });
+
 
 require __DIR__ . '/auth.php';
