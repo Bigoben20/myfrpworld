@@ -69,7 +69,7 @@
                                     </a>
                                   </li>
                                   <li class="flex">
-                                    <button wire:click="delete({{ $myStory->id }})" data-te-toggle="modal" data-te-target="#deleteModal" data-te-ripple-init data-te-ripple-color="warning" type="button"
+                                    <button wire:click="destroy({{ $myStory->id }})" data-te-toggle="modal" data-te-target="#deleteModal" data-te-ripple-init data-te-ripple-color="warning" type="button"
                                         class="rounded-full text-red-600 hover:bg-red-100 active:bg-red-100 dark:hover:bg-red-700 dark:active:bg-red-600 w-10 h-10 text-xl flex justify-center items-center">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
@@ -92,4 +92,3 @@
 </div>
 
 {{-- delete modal --}}
-@include('livewire.modals.myCharactersModals.deleteModal')

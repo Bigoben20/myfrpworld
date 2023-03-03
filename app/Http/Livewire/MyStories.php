@@ -15,6 +15,9 @@ class MyStories extends Component
     public $storyName;
     public $storyGenre;
     public $storyLogline;
+    
+    public $selectedStory;
+    public $selectedStoryName;
 
     protected $rules = [
         'storyName' => 'required',
@@ -32,14 +35,34 @@ class MyStories extends Component
     public function store()
     {
         $this->validate();
-
+        
         $story = new Story();
         $story->name = $this->storyName;
         $story->genre = $this->storyGenre;
         $story->summary = $this->storyLogline;
         $story->user_id = Auth::id();
         $story->save();
-        redirect()->route('myStories')->with('success','Story created successfully');
+        
+        session()->flash('message', 'Story successfully created.');
+
+    }
+
+    public function delete($id)
+    {
+        $this->selectedStory = Story::find($id);
+    }
+
+    public function destroy($id)
+    {   
+        $this->selectedStory = Story::find($id);
+        try {
+            $this->selectedStoryName = $this->selectedStory->name;
+            $this->selectedStory->delete();
+            session()->flash('messageInfo', 'Story successfully deleted.');
+
+        } catch (\Throwable $th) {
+            session()->flash('error', "Story can't deleted.");
+        }
     }
     
     public function render()

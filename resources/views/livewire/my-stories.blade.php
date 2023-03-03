@@ -1,4 +1,20 @@
 <div wire:ignore.self>
+    <div>
+        @if (session()->has('messageInfo'))
+            <x-alert type="info">
+                {{ session('messageInfo') }}
+            </x-alert>
+        @elseif(session()->has('message'))
+            <x-alert type="success">
+                {{ session('success') }}
+            </x-alert>
+        @elseif(session()->has('error'))
+            <x-alert type="danger">
+                {{ session('error') }}
+            </x-alert>
+        @endif
+    </div>
+
     <ul class="mb-2 -ml-2 p-2 flex list-none flex-nowrap flex-row overflow-x-auto w-full justify-start items-center gap-2" id="pills-tab" role="tablist" data-te-nav-ref>
         <li role="presentation" class="flex">
             <x-pill-button hasLink="#create-story" id="create-story-tab" data-te-toggle="pill" data-te-target="#create-story" role="tab" aria-controls="create-story"
