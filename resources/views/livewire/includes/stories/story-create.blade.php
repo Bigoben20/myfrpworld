@@ -16,7 +16,7 @@
     @enderror
     <form wire:submit.prevent="store">
 
-        <div class="flex flex-col border border-gray-800 rounded-xl" x-data="{name: '', genre:'', logline:''}">
+        <div class="flex flex-col border border-gray-800 rounded-xl" x-data="{ name: '', genre: '', logline: '' }">
             {{-- header --}}
             <div class="bg-gray-700 rounded-t-lg px-2 py-1 flex justify-start items-center">
                 <h2 class="text-slate-200 text-xl font-bold tracking-wide">Create Story</h2>
