@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-characters/{id}', [DataController::class, 'detailCharacter'])->name('character.detail');
 
     Route::get('/my-stories', [DataController::class, 'myStories'])->name('myStories');
+    Route::get('/my-stories/{id}', [DataController::class, 'detailStory'])->name('story.detail');
+
 });
 
 

@@ -28,22 +28,19 @@
                 {{-- Name --}}
                 <div class="flex flex-col  dark:text-gray-200">
                     <label for="name">Name</label>
-                    <input type="text" wire:model.defer="storyName" x-model="name" placeholder="Story Name"
-                        class="border border-gray-300 ddark:border-gray-500 rounded-lg focus:ring-sky-500 focus:ring-offset-0 dark:bg-gray-600 dark:text-gray-200">
+                    <x-input-template type="text" wire:model.defer="storyName" x-model="name" placeholder="Story Name"/>                                    
                 </div>
 
                 {{-- Genre --}}
                 <div class="flex flex-col  dark:text-gray-200">
                     <label for="genre">Genre</label>
-                    <input type="text" wire:model.defer="storyGenre" x-model="genre" placeholder="Story Genre"
-                        class="border border-gray-300 ddark:border-gray-500 rounded-lg focus:ring-sky-500 focus:ring-offset-0 dark:bg-gray-600 dark:text-gray-200">
+                    <x-input-template type="text" wire:model.defer="storyGenre" x-model="genre" placeholder="Story Genre"/>                                    
                 </div>
 
                 {{-- Detail --}}
                 <div class="flex flex-col  dark:text-gray-200">
                     <label for="logline">Logline</label>
-                    <input type="text" wire:model.defer="storyLogline" x-model="logline" placeholder="Story logline" maxlength="255"
-                        class="border border-gray-300 ddark:border-gray-500 rounded-lg focus:ring-sky-500 focus:ring-offset-0 dark:bg-gray-600">
+                    <x-input-template type="text" wire:model.defer="storyLogline" x-model="logline" placeholder="Story logline" maxlength="255"/>                                    
                 </div>
             </div>
 

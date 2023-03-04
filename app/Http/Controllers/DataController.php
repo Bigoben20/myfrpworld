@@ -39,4 +39,9 @@ class DataController extends Controller
     {
         return view('user.my-stories');
     }
+
+    public function detailStory($id)
+    {
+        return view('user.myStories.details', compact('id'));
+    }
 }

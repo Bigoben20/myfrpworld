@@ -803,7 +803,8 @@
     "Character Details":"Karakter Detayları",
 
     "Notes":"Notlar",
-
+    "story":"Hikaye",
+    
     "academics":"akademik",
     "athletics":"çeviklik",
     "burglary":"hırsızlık",
@@ -821,5 +822,7 @@
     "rapport":"muhabbet",
     "shoot":"atıcılık",
     "stealth":"gizlilik",
-    "will":"irade"
+    "will":"irade",
+
+    "story details":"Hikaye Detayları"
 }

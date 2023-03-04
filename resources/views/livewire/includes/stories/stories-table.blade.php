@@ -18,7 +18,7 @@
             </th>
             </tr>
         </thead>
-        <tbody class="bg-white border-b">
+        <tbody class="bg-white">
             @forelse ($myStories as $myStory)
                 <tr class="border-y text-slate-900 dark:text-slate-300 dark:bg-slate-800 dark:border-slate-700">
                     <td class="px-4 py-2">
@@ -63,14 +63,14 @@
                                   aria-labelledby="menuButton{{ $myStory->id }}"
                                   data-te-dropdown-menu-ref>
                                   <li class="flex">
-                                    <a href="/my-characters/{{ $myStory->id }}"
-                                        class="rounded-full hover:bg-gray-100 active:bg-gray-100 dark:hover:bg-gray-700 dark:active:bg-gray-600 w-10 h-10 text-xl flex justify-center items-center">
+                                    <a href="/my-stories/{{ $myStory->id }}"
+                                        class="rounded-full hover:bg-gray-100 active:bg-gray-100 dark:hover:bg-gray-400/20 dark:active:bg-gray-600 w-10 h-10 text-xl flex justify-center items-center">
                                         <i class="fa-solid fa-gear"></i>
                                     </a>
                                   </li>
                                   <li class="flex">
                                     <button wire:click="destroy({{ $myStory->id }})" data-te-toggle="modal" data-te-target="#deleteModal" data-te-ripple-init data-te-ripple-color="warning" type="button"
-                                        class="rounded-full text-red-600 hover:bg-red-100 active:bg-red-100 dark:hover:bg-red-700 dark:active:bg-red-600 w-10 h-10 text-xl flex justify-center items-center">
+                                        class="rounded-full text-red-600 hover:bg-red-100 active:bg-red-100 dark:hover:bg-red-500/20 dark:active:bg-red-600 w-10 h-10 text-xl flex justify-center items-center">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
                                   </li>
@@ -81,7 +81,7 @@
                     </td>
                 </tr>
             @empty
-                <tr>
+                <tr class="border-none text-slate-900 dark:text-slate-300 dark:bg-slate-800 dark:border-slate-700 -m">
                     <td colspan="7" class="px-6 py-4 text-center">
                         <h1 class="text-2xl font-bold">Hiç karakteriniz bulunmamaktadır</h1>
                     </td>

@@ -40,15 +40,14 @@
 
                                 {{-- Name --}}
                                 <div class="flex flex-col">
-                                    <label for="name">Name</label>
-                                    <input type="text" wire:model="myCharacterName" id="name" placeholder="Character name"
-                                        class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0">
+                                    <label for="name">{{ __('Name') }}</label>
+                                    <x-input-template type="text" wire:model="myCharacterName" id="name" placeholder="Character name"/>
                                 </div>
 
                                 {{-- Type --}}
                                 <div class="flex flex-col">
-                                    <label for="type">Type</label>
-                                    <select type="text" wire:model="myCharacterType" id="type" placeholder="Type" class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0">
+                                    <label for="type">{{ __('Type') }}</label>
+                                    <select type="text" wire:model="myCharacterType" id="type" placeholder="Type" class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0">
                                         <option value=""> Choose a type</option>
                                         @forelse ($types as $type)
                                             <option value="{{ $type[1] }}"><span class="capitalize">{{ $type[0] }}</span></option>
@@ -59,9 +58,9 @@
 
                                 {{-- Story --}}
                                 <div class="flex flex-col">
-                                    <label for="story">Story</label>
+                                    <label for="story">{{ __("Story") }}</label>
                                     <select type="text" wire:model="myCharacterStory" id="story" placeholder="High Concept"
-                                        class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0">
+                                        class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0">
                                         <option value="none"> None</option>
                                         
                                     </select>
@@ -84,25 +83,23 @@
                             <div class="flex flex-col px-2 py-2">
                                 <div class="flex flex-col">
                                     <label for="hc">High Concept</label>
-                                    <input type="text" wire:model="highConcept" id="hc" placeholder="High Concept"
-                                        class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0">
+                                    <x-input-template type="text" wire:model="highConcept" id="hc" placeholder="High Concept"/>
                                 </div>
                                 <div class="flex flex-col">
                                     <label for="t">Trouble</label>
-                                    <input type="text" wire:model="trouble" id="t" placeholder="Trouble" class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0">
+                                    <x-input-template type="text" wire:model="trouble" id="t" placeholder="Trouble" />
                                 </div>
                                 <div class="flex flex-col">
                                     <label for="r">Relationship</label>
-                                    <input type="text" wire:model="relationship" id="r" placeholder="Relationship"
-                                        class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0">
+                                    <x-input-template type="text" wire:model="relationship" id="r" placeholder="Relationship" />                                    
                                 </div>
                                 <div class="flex flex-col">
                                     <label for="a">Aspect</label>
-                                    <input type="text" wire:model="aspect" id="a" placeholder="Aspect" class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0">
+                                    <x-input-template type="text" wire:model="aspect" id="a" placeholder="Aspect"/>                                    
                                 </div>
                                 <div class="flex flex-col">
                                     <label for="a2">Aspect</label>
-                                    <input type="text" wire:model="aspect2" id="a2" placeholder="Aspect" class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0">
+                                    <x-input-template type="text" wire:model="aspect2" id="a2" placeholder="Aspect"/>                                    
                                 </div>
                             </div>
                         </div>
@@ -118,17 +115,17 @@
                             {{-- body --}}
                             <div class="flex flex-col gap-2 px-2 pb-2">
                                 <div class="flex flex-col">
-                                    <textarea placeholder="Stunts" rows="31" wire:model="stunts" class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0"></textarea>
+                                    <textarea placeholder="Stunts" rows="31" wire:model="stunts" class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0"></textarea>
                                 </div>
                                 <div class="flex justify-between items-center">
                                     <div class="flex justify-center items-center gap-2">
-                                        <input class="appearance-none w-16 h-16 pl-4 pr-2 bg-slate-200 border-none text-3xl focus:ring-0 rounded-full" type="number" value="3"
+                                        <input class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 appearance-none w-16 h-16 pl-4 pr-2 bg-slate-200 border-none text-3xl focus:ring-0 rounded-full" type="number" value="3"
                                             wire:model="refresh" min="0">
                                         <h3 class="text-lg md:text-3xl">Refresh</h3>
                                     </div>
                                     <div class="flex justify-center items-center gap-2">
                                         <h3 class="text-lg md:text-3xl">Fate Points</h3>
-                                        <input class="appearance-none w-16 h-16 pl-4 pr-2 bg-slate-200 border-none text-3xl focus:ring-0 rounded-full" type="number" value="3"
+                                        <input class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 appearance-none w-16 h-16 pl-4 pr-2 bg-slate-200 border-none text-3xl focus:ring-0 rounded-full" type="number" value="3"
                                             wire:model="fp" min="0">
                                     </div>
                                 </div>
@@ -153,55 +150,51 @@
                                     <label for="" class="text-lg lg:text-2xl">Physical</label>
                                     <div class="flex items-center justify-between">
                                         <input type="checkbox" wire:model="physicalcheck.0" placeholder="1"
-                                            class="border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
+                                            class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
                                         <input type="checkbox" wire:model="physicalcheck.1" placeholder="1"
-                                            class="border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
+                                            class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
                                         <input type="checkbox" wire:model="physicalcheck.2" placeholder="1"
-                                            class="border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
+                                            class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
                                         <input type="checkbox" wire:model="physicalcheck.3" placeholder="1"
-                                            class="border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
+                                            class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
                                         <input type="checkbox" wire:model="physicalcheck.4" placeholder="1"
-                                            class="border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
+                                            class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
                                         <input type="checkbox" wire:model="physicalcheck.5" placeholder="1"
-                                            class="border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
+                                            class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
                                     </div>
 
                                     <label for="p" class="text-lg lg:text-2xl">Mental</label>
                                     <div class="flex gap-2 items-center  justify-between">
                                         <input type="checkbox" wire:model="mentalcheck.0" placeholder="1"
-                                            class="border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
+                                            class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
                                         <input type="checkbox" wire:model="mentalcheck.1" placeholder="1"
-                                            class="border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
+                                            class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
                                         <input type="checkbox" wire:model="mentalcheck.2" placeholder="1"
-                                            class="border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
+                                            class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
                                         <input type="checkbox" wire:model="mentalcheck.3" placeholder="1"
-                                            class="border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
+                                            class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
                                         <input type="checkbox" wire:model="mentalcheck.4" placeholder="1"
-                                            class="border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
+                                            class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
                                         <input type="checkbox" wire:model="mentalcheck.5" placeholder="1"
-                                            class="border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
+                                            class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 border border-gray-300 rounded-full focus:ring-sky-500 focus:ring-offset-0 p-3 lg:p-4">
                                     </div>
                                 </div>
 
                                 <div class="flex gap-2 items-center">
                                     <label for="2" class="text-4xl">2</label>
-                                    <input type="text" wire:model="mid" id="2" placeholder="Mid"
-                                        class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0 w-full">
+                                    <x-input-template class="w-full" type="text" wire:model="mid" id="2" placeholder="Mid"/>                                    
                                 </div>
                                 <div class="flex  gap-2 items-center">
                                     <label for="4" class="text-4xl">4</label>
-                                    <input type="text" wire:model="moderate" id="4" placeholder="Moderate"
-                                        class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0 w-full">
+                                    <x-input-template class="w-full" type="text" wire:model="moderate" id="4" placeholder="Moderate"/>                                    
                                 </div>
                                 <div class="flex  gap-2 items-center">
                                     <label for="6" class="text-4xl">6</label>
-                                    <input type="text" wire:model="severe" id="6" placeholder="Severe"
-                                        class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0 w-full">
+                                    <x-input-template class="w-full" type="text" wire:model="severe" id="6" placeholder="Severe"/>                                    
                                 </div>
                                 <div class="flex  gap-2 items-center">
                                     <label for="8" class="text-4xl">8</label>
-                                    <input type="text" wire:model="changer" id="8" placeholder="Character Changer"
-                                        class="border border-gray-300 rounded-lg focus:ring-sky-500 focus:ring-offset-0 w-full">
+                                    <x-input-template class="w-full" type="text" wire:model="changer" id="8" placeholder="Character Changer"/>                                    
                                 </div>
                             </div>
                         </div>
@@ -218,7 +211,7 @@
                             <div class="flex flex-col gap-2 px-2 pb-2">
                                 @foreach ($skills as $skill)
                                     <div class="flex items-center gap-2">
-                                        <input class="appearance-none w-20 h-10 pl-4 pr-2 border-slate-200 text-xl focus:ring-0 rounded-lg" type="number" wire:model="{{ $skill }}">
+                                        <input class="dark:bg-gray-900 border border-gray-300 dark:border-gray-600 appearance-none w-20 h-10 pl-4 pr-2 border-slate-200 text-xl focus:ring-0 rounded-lg" type="number" wire:model="{{ $skill }}" max="99" min="-9">
                                         <h3 class="text-lg md:text-xl capitalize">{{ $skill }}</h3>
                                     </div>
                                 @endforeach
