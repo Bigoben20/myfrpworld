@@ -1,11 +1,15 @@
 {
+  "public/assets/img/scattered-forcefields.svg": {
+    "file": "assets/scattered-forcefields-98da0b6c.svg",
+    "src": "public/assets/img/scattered-forcefields.svg"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-5369315b.css",
+    "file": "assets/app-ae7e1c18.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-1736b1f2.js",
+    "file": "assets/app-d7a96e76.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
